@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacTerje</title>
+    <style>
+        .rutenett {
+            /*dette er selve boksene eller "rutenettet" i spillet */
+            height: 100px;
+            width: 100px;
+            box-shadow: 7px 5px 5px;
+            border: 2px solid white;
+        }
+
+        .center {
+            /*denne sentrerer bare alt, kunne egentlig hardkoda det inn i body tagen, men det ser stygt ut*/
+            text-align: center;
+
+        }
+
+        .spilleregler {
+            text-align: center;
+            /*denne er ubrukelig, men lekte litt rundt med forskjellig css styling*/
+        }
+    </style>
+</head>
+
+<body background="img/cfkkgb2cOk.avif">
+    <div class="center">
+
+        <h1 class="overskrift">Tic Tac Terje!</h1>
+        <h2>spilleregler:</h2>
+        <div class=spilleregler>
+            <li> Krever 2 spillere </li>
+            <li> Hver spiller velger seg en brikke, <b>Eskil</b> eller <b>Terje!</b></li>
+            <li>Første person til å få 3 på rad vinner spillet.</li>
+        </div>
+
+        <button onclick="resetSpill()">Reset</button>
+        <div id="heleSpillet">
+            <div class="rad1">
+                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
+                <img id="rutenett" class="rutenett" onclick="spillebrikke2()">
+                <img id="rutenett" class="rutenett" onclick="spillebrikke3()">
+            </div>
+            <div class="rad2">
+                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
+                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
+                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
+            </div>
+            <div class="rad3">
+                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
+                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
+                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function spillebrikke() {
+            document.getElementById("rutenett").src = "img/terje.png";
+
+        }
+        function spillebrikke2() {
+            document.getElementById("rutenett").src = "img/eskil.png";
+
+        }
+
+
+        function resetSpill() {
+            document.getElementById("rutenett").src = "";
+        }
+    </script>
+</body>
+
+</html>
