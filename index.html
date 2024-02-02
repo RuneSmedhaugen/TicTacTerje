@@ -27,7 +27,7 @@
     </style>
 </head>
 
-<body background="img/cfkkgb2cOk.avif">
+<body background=>
     <div class="center">
 
         <h1 class="overskrift">Tic Tac Terje!</h1>
@@ -41,8 +41,8 @@
         <button onclick="resetSpill()">Reset</button>
         <div id="heleSpillet">
             <div class="rad1">
-                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
-                <img id="rutenett" class="rutenett" onclick="spillebrikke2()">
+                <img id="rute1" class="rutenett" onclick="spillebrikke1()">
+                <img id="rute2" class="rutenett" onclick="spillebrikke2()">
                 <img id="rutenett" class="rutenett" onclick="spillebrikke3()">
             </div>
             <div class="rad2">
@@ -59,18 +59,21 @@
     </div>
 
     <script>
-        function spillebrikke() {
+        function spillebrikke1() {
             if (true) 
-                document.getElementById("rute1").src = "TicTacTerje/img/terje.png"
+                document.getElementById("rute1").src == "img/terje.png"
             
-            else (false)
-                document.getElementById("rute1").src = "TicTacTerje/img/eskil.png";
+           else (false)
+                document.getElementById("rute1").src = "img/eskil.png"
+    
+                /* Må fikse if else settingen, akkurat nå kommer ikke bildene opp (edit: eskil kommer nå opp). Har det noe med at jeg må sette true/false til å endre seg også? eller er src feil? */
     }
 
 
 
+
         function resetSpill() {
-            document.getElementById("rutenett").src = "";
+            document.getElementById("rute1").src = "";
         }
     </script>
 </body>
