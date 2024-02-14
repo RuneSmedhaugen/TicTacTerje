@@ -10,10 +10,17 @@
             /*dette er selve boksene eller "rutenettet" i spillet */
             height: 100px;
             width: 100px;
-            box-shadow: 7px 5px 5px;
-            border: 2px solid white;
+            box-shadow: 1px 1px 10px;
+            border: 2px solid black;
+            background-color: white;
+            /* opacity: 35%; */
+            align-content: center;
         }
-
+        .dumKnapp {
+            color: red;
+            background-color: white;
+            margin-top: 10px;
+        }
         .center {
             /*denne sentrerer bare alt, kunne egentlig hardkoda det inn i body tagen, men det ser stygt ut*/
             text-align: center;
@@ -21,59 +28,87 @@
         }
 
         .spilleregler {
-            text-align: center;
-            /*denne er ubrukelig, men lekte litt rundt med forskjellig css styling*/
+            display: flex;
+            justify-content: flex-start;
+            font-size: 120%;
+            background: rgb(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .opacity {
+            opacity: 30%;
+        }
+
+        .resetKnapp {
+            margin: 10px;
+        }
+
+        .overskrift {
+            font-size: 500%;
+            margin: 1%;
+
         }
     </style>
 </head>
 
-<body background=>
+<body background="img/cfkkgb2cOk.avif">
     <div class="center">
 
         <h1 class="overskrift">Tic Tac Terje!</h1>
-        <h2>spilleregler:</h2>
         <div class=spilleregler>
-            <li> Krever 2 spillere </li>
-            <li> Hver spiller velger seg en brikke, <b>Eskil</b> eller <b>Terje!</b></li>
-            <li>Første person til å få 3 på rad vinner spillet.</li>
-        </div>
 
-        <button onclick="resetSpill()">Reset</button>
+                <h2><u>spilleregler:</u></h2>
+                <li> Krever 2 spillere </li>
+                <li> Hver spiller velger seg en brikke, <b>Eskil</b> eller <b>Terje!</b></li>
+                <li>Første person til å få 3 på rad vinner spillet.</li>
+                <li>klikk på ruten du vil sette en brikke. 1 gang for Terje, 2 ganger for Eskil og 3 ganger for å blanke
+                    ut
+                    ruten </li>
+            </div>
+        
+        <div class="dumKnapp"><b>reset funker ikke helt enda. refresh siden for å resette eller blank ut rutene ved å
+                trykke på dem (denne teksten skal selvfølgelig ikke være her)</b></div>
+        <button id="resetKnapp" class="resetKnapp" onclick="resetSpill()">Reset</button>
         <div id="heleSpillet">
             <div class="rad1">
-                <img id="rute1" class="rutenett" onclick="spillebrikke1()">
-                <img id="rute2" class="rutenett" onclick="spillebrikke2()">
-                <img id="rutenett" class="rutenett" onclick="spillebrikke3()">
+                <img id="rute1" class="rutenett" onclick="spillebrikke('rute1')">
+                <img id="rute2" class="rutenett" onclick="spillebrikke('rute2')">
+                <img id="rute3" class="rutenett" onclick="spillebrikke('rute3')">
             </div>
             <div class="rad2">
-                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
-                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
-                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
+                <img id="rute4" class="rutenett" onclick="spillebrikke('rute4')">
+                <img id="rute5" class="rutenett" onclick="spillebrikke('rute5')">
+                <img id="rute6" class="rutenett" onclick="spillebrikke('rute6')">
             </div>
             <div class="rad3">
-                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
-                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
-                <img id="rutenett" class="rutenett" onclick="spillebrikke()">
+                <img id="rute7" class="rutenett" onclick="spillebrikke('rute7')">
+                <img id="rute8" class="rutenett" onclick="spillebrikke('rute8')">
+                <img id="rute9" class="rutenett" onclick="spillebrikke('rute9')">
             </div>
         </div>
     </div>
 
     <script>
-        function spillebrikke1() {
-            if (true) 
-                document.getElementById("rute1").src == "img/terje.png"
-            
-           else (false)
-                document.getElementById("rute1").src = "img/eskil.png"
-    
-                /* Må fikse if else settingen, akkurat nå kommer ikke bildene opp (edit: eskil kommer nå opp). Har det noe med at jeg må sette true/false til å endre seg også? eller er src feil? */
-    }
+        function spillebrikke(imgID) {
+            let rute = document.getElementById(imgID);
+            if (rute.style.backgroundImage == '') {
+                rute.style.backgroundImage =
+                    "url('img/terje.png')";
+                console.log(rute.style.backgroundImage)
+            }
+            else if (rute.style.backgroundImage.includes('img/terje.png')) {
+                rute.style.backgroundImage = "url('img/eskil.png')";
+                console.log(rute.style.backgroundImage)
+            }
+            else {
+                rute.style.backgroundImage = '';
+                console.log(rute.style.backgroundImage)
+            }
+        }
 
-
-
-
+        //må definere rute i knapp. usikker på hvordan jeg gjør dette på dette tidspunkt
         function resetSpill() {
-            document.getElementById("rute1").src = "";
+            rute.style.backgroundImage = '';
         }
     </script>
 </body>
