@@ -15,12 +15,9 @@
             background-color: white;
             /* opacity: 35%; */
             align-content: center;
+            background-size: cover;
         }
-        .dumKnapp {
-            color: red;
-            background-color: white;
-            margin-top: 10px;
-        }
+
         .center {
             /*denne sentrerer bare alt, kunne egentlig hardkoda det inn i body tagen, men det ser stygt ut*/
             text-align: center;
@@ -57,17 +54,15 @@
         <h1 class="overskrift">Tic Tac Terje!</h1>
         <div class=spilleregler>
 
-                <h2><u>spilleregler:</u></h2>
-                <li> Krever 2 spillere </li>
-                <li> Hver spiller velger seg en brikke, <b>Eskil</b> eller <b>Terje!</b></li>
-                <li>Første person til å få 3 på rad vinner spillet.</li>
-                <li>klikk på ruten du vil sette en brikke. 1 gang for Terje, 2 ganger for Eskil og 3 ganger for å blanke
-                    ut
-                    ruten </li>
-            </div>
-        
-        <div class="dumKnapp"><b>reset funker ikke helt enda. refresh siden for å resette eller blank ut rutene ved å
-                trykke på dem (denne teksten skal selvfølgelig ikke være her)</b></div>
+            <h2><u>spilleregler:</u></h2>
+            <li> Krever 2 spillere </li>
+            <li> Hver spiller velger seg en brikke, <b>Eskil</b> eller <b>Terje!</b></li>
+            <li>Første person til å få 3 på rad vinner spillet.</li>
+            <li>klikk på ruten du vil sette en brikke. 1 gang for Terje, 2 ganger for Eskil og 3 ganger for å blanke
+                ut
+                ruten </li>
+        </div>
+
         <button id="resetKnapp" class="resetKnapp" onclick="resetSpill()">Reset</button>
         <div id="heleSpillet">
             <div class="rad1">
@@ -106,9 +101,11 @@
             }
         }
 
-        //må definere rute i knapp. usikker på hvordan jeg gjør dette på dette tidspunkt
         function resetSpill() {
-            rute.style.backgroundImage = '';
+            var rutene = document.querySelectorAll('.rutenett');
+            rutene.forEach(function (rute) {
+                rute.style.backgroundImage = '';
+            });
         }
     </script>
 </body>
